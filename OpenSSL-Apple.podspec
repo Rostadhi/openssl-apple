@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     openssl_version   = "1.1.1l"
-    openssl_targets   = "ios-sim-cross-x86_64 ios-sim-cross-arm64 ios64-cross-arm64 ios64-cross-arm64e macos64-x86_64 macos64-arm64 mac-catalyst-x86_64 mac-catalyst-arm64"
+    openssl_targets   = "ios-sim-cross-x86_64 ios-sim-cross-arm64 ios64-cross-arm64 ios64-cross-arm64e"
     script_version    = "11"
 
     s.name            = "OpenSSL-Apple"
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
     s.license         = { :type => 'Apache', :file => 'LICENSE' }
 
     s.prepare_command = <<-CMD
-./build-libssl.sh --version="#{openssl_version}" --targets="#{openssl_targets}" --disable-bitcode
+./build-libssl.sh --version="#{openssl_version}" --targets="#{openssl_targets}"
 ./create-openssl-framework.sh dynamic
     CMD
 
